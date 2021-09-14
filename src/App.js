@@ -17,7 +17,6 @@ class App extends React.Component {
     } = await axios.get(
       "https://yts.mx/api/v2/list_movies.json?sort_by=rating"
     );
-    // console.log(movies.data.data.movies);
 
     this.setState({ movies, isLoading: false });
   };
@@ -28,11 +27,14 @@ class App extends React.Component {
   render() {
     const { isLoading, movies } = this.state;
     return (
-      <div>
-        {isLoading
-          ? "loading..."
-          : movies.map((movie) => {
-              // console.log(movie);
+      <section className="container">
+        {isLoading ? (
+          <div className="loader">
+            <span className="loader__text">Loading...</span>
+          </div>
+        ) : (
+          <div className="movies">
+            {movies.map((movie) => {
               return (
                 <Movie
                   key={movie.id}
@@ -41,10 +43,13 @@ class App extends React.Component {
                   title={movie.title}
                   summary={movie.summary}
                   poster={movie.medium_cover_image}
+                  genres={movie.genres}
                 />
               );
             })}
-      </div>
+          </div>
+        )}
+      </section>
     );
   }
 }
