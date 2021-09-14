@@ -1,0 +1,55 @@
+.movie {
+  margin-right: 30px;
+  margin-bottom: 100px;
+  padding: 30px;
+
+  display: flex;
+  align-items: center;
+
+  position: relative;
+  width: calc(100% / 2 - 30px);
+  height: 300px;
+
+  box-sizing: border-box;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: rgba(149, 157, 165, 0.6) 8px 8px 24px;
+}
+.movie:nth-of-type(2n) {
+  margin-right: 0;
+}
+.movie img {
+  margin-top: -50px;
+  height: 300px;
+}
+.movie .movie__data {
+  padding: 0 0 0 30px;
+}
+.movie .movie__data .movie__title {
+  color: #525252;
+}
+.movie .movie__data .movie__year {
+  color: #b1b1b1;
+}
+.movie .movie__data .genres {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  list-style: none;
+}
+.movie .movie__data .genres .genres__genre {
+  padding: 0;
+  margin-right: 10px;
+  font-size: 11px;
+  color: #525252;
+}
+.movie .movie__data .movie__summary {
+  display: -webkit-box;
+  width: 300px;
+  color: #b1b1b1;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
