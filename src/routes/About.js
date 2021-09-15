@@ -3,6 +3,10 @@ import "./About.css";
 
 function About(props) {
   console.log(props);
-  return <span>this is about page</span>;
+  return (
+    <div className="about">
+      <h1>this is about page</h1>
+    </div>
+  );
 }
 export default About;

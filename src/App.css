@@ -6,9 +6,16 @@ body {
 html {
   background-color: rgba(153, 205, 240, 0.196);
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 0;
+}
 .App {
   width: 100%;
   margin: 0 auto;
+  padding: 100px 0;
+  box-sizing: border-box;
 }
 
 .App-logo {

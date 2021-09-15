@@ -1,0 +1,41 @@
+.movie_detail {
+  width: 85%;
+  margin-left: auto;
+}
+.movie_detail .inner {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.movie_detail .inner img {
+  box-shadow: rgba(149, 157, 165, 0.6) 8px 8px 24px;
+}
+.movie_detail .inner .movie_detail_data {
+  margin-left: 100px;
+  width: 50%;
+}
+.movie_detail .inner .movie_detail_data__title {
+  font-family: "Montserrat", "Roboto", sans-serif;
+  letter-spacing: -0.03em;
+  color: #525252;
+}
+.movie_detail .inner .movie_detail_data__year {
+  display: inline-block;
+  font-family: "Montserrat", "Roboto", sans-serif;
+  letter-spacing: -0.03em;
+  color: #b1b1b1;
+}
+.movie_detail .inner .movie_detail_data__genres {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.movie_detail .inner .movie_detail_data__genres li {
+  margin-right: 10px;
+  color: #525252;
+  font-weight: 600;
+}
+.movie_detail .inner .movie_detail_data__summary {
+  line-height: 2em;
+}
