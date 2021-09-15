@@ -1,0 +1,14 @@
+/* movies:s */
+.container {
+  width: 1290px;
+  margin: 0 auto;
+}
+.movies {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+/* movies:e */
