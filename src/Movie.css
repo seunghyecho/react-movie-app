@@ -27,9 +27,11 @@
 }
 .movie .movie__data .movie__title {
   color: #525252;
+  font-family: "Montserrat", "Roboto", sans-serif;
 }
 .movie .movie__data .movie__year {
   color: #b1b1b1;
+  font-family: "Montserrat", "Roboto", sans-serif;
 }
 .movie .movie__data .genres {
   padding: 0;
