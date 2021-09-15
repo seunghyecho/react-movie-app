@@ -1,7 +1,7 @@
 /* movies:s */
 .container {
-  width: 1290px;
-  margin: 0 auto;
+  margin-left: auto;
+  width: 85%;
 }
 .movies {
   margin-top: 100px;

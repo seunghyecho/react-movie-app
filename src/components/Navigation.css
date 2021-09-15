@@ -1,0 +1,26 @@
+.navigation {
+  position: fixed;
+  width: 15%;
+}
+.navigation .inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+.navigation .inner a {
+  margin-right: 30px;
+  padding: 20px 0;
+  box-sizing: border-box;
+  width: 100%;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #525252;
+}
+.navigation .inner a:hover {
+  background-color: rgba(153, 205, 240, 0.596);
+}

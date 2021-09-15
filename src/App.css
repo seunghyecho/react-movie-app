@@ -1,19 +1,14 @@
-/* movies:s */
-.container {
-  width: 1290px;
-  margin: 0 auto;
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
-.movies {
-  margin-top: 100px;
-  margin-bottom: 100px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+html {
+  background-color: rgba(153, 205, 240, 0.196);
 }
-/* movies:e */
 .App {
-  text-align: center;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .App-logo {
