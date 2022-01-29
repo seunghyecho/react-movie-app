@@ -14,6 +14,13 @@ const Container = styled.div`
     }
   }
 `;
+const LoadEle = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -21,7 +28,7 @@ export default function Home() {
   const getMovies = async () => {
     const json = await (
       await fetch(
-        `https://yts.mx/api/v2/list_movies.json?minimum_rating=9.8&sort_by=year`
+        `https://yts.mx/api/v2/list_movies.json?minimum_rating=9.0&sort_by=year`
       )
     ).json();
     setMovies(json.data.movies);
@@ -35,9 +42,9 @@ export default function Home() {
   return (
     <Container>
       {loading ? (
-        <div>
-          <span>Loading...</span>
-        </div>
+        <LoadEle>
+          <h1>Loading...</h1>
+        </LoadEle>
       ) : (
         <ul>
           {movies.map((movie) => (
