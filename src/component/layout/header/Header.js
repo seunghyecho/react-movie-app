@@ -1,7 +1,6 @@
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-
+import { useState } from "react";
 const HeaderEle = styled.header`
   margin: 0 auto;
   padding: 0 10px;
@@ -59,6 +58,7 @@ export default function Header() {
   const handleLog = (e) => {
     setLog(!log);
   };
+
   const menus = [
     {
       id: 1,
@@ -107,9 +107,11 @@ export default function Header() {
           </ul>
           <div className="userCondition">
             <h4>
-              <button onClick={handleLog}>
-                {log ? "sign out" : "sign in"}
-              </button>
+              {log ? (
+                <Link to="/">log out</Link>
+              ) : (
+                <Link to="/login">log in</Link>
+              )}
             </h4>
           </div>
         </div>
