@@ -48,21 +48,21 @@ export default function Movie({
   year,
 }) {
   return (
-    <MovieEle>
-      <ImgArea className="imag">
-        <img src={image} alt={title} />
-      </ImgArea>
-      <InfoArea className="info">
-        <span>{genres}</span>
-        <h1 className="title">
-          <Link to={`/detail/${id}`}>{title}</Link>
-        </h1>
-        <p className="summary">{summary}</p>
-        <div className="d-flex">
-          <span>{rating}</span>
-          <span>{year}</span>
-        </div>
-      </InfoArea>
-    </MovieEle>
+    <Link to={`/detail/${id}`}>
+      <MovieEle>
+        <ImgArea className="imag">
+          <img src={image} alt={title} />
+        </ImgArea>
+        <InfoArea className="info">
+          <span>{genres}</span>
+          <h1 className="title">{title}</h1>
+          <p className="summary">{summary}</p>
+          <div className="d-flex">
+            <span>{rating}</span>
+            <span>{year}</span>
+          </div>
+        </InfoArea>
+      </MovieEle>
+    </Link>
   );
 }
