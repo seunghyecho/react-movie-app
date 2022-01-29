@@ -86,7 +86,7 @@ export default function Header() {
     <HeaderEle>
       <div className="head flex">
         <div className="head--logo">
-          <Link to="/">
+          <Link to="/home">
             <h1>Web Logo</h1>
           </Link>
         </div>

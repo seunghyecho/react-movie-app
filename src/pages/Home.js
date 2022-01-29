@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Movie from "../component/Movie";
+import Movie from "../component/movie";
 import styled from "styled-components";
 
 const Container = styled.div`
