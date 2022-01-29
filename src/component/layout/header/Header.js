@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const HeaderEle = styled.header`
@@ -36,11 +36,6 @@ const HeaderEle = styled.header`
         }
         &.active {
           color: tomato;
-          border-bottom: 2px solid tomato;
-        }
-        &:hover,
-        &:active,
-        &:focus {
           a {
             border-bottom: 2px solid tomato;
           }
@@ -56,24 +51,33 @@ const HeaderEle = styled.header`
   }
 `;
 export default function Header() {
+  const location = useLocation();
+  const { pathname } = location;
+  const splitLocation = pathname.split("/");
+
   const [log, setLog] = useState();
   const handleLog = (e) => {
     setLog(!log);
   };
   const menus = [
     {
+      id: 1,
       name: "home",
     },
     {
+      id: 2,
       name: "schedules",
     },
     {
+      id: 3,
       name: "tickets",
     },
     {
+      id: 4,
       name: "news",
     },
     {
+      id: 5,
       name: "contact",
     },
   ];
@@ -90,7 +94,12 @@ export default function Header() {
           <ul className="gnb flex">
             {menus.map((menu, idx) => {
               return (
-                <li className={menu.name ? "flex active" : "flex"} key={idx}>
+                <li
+                  className={
+                    menu.name === splitLocation[1] ? "flex active" : "flex"
+                  }
+                  key={idx}
+                >
                   <Link to={`/${menu.name}`}>{menu.name}</Link>
                 </li>
               );
