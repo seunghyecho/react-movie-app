@@ -63,7 +63,7 @@ export default function Movie({
     <MovieEle>
       <CheckFavorite>
         <label htmlFor={id}>
-          <FontAwesomeIcon icon={faStar} color={checked ? "yellow" : "white"} />
+          <FontAwesomeIcon icon={faStar} color={checked ? "tomato" : "white"} />
         </label>
         <input
           type="checkbox"

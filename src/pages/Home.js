@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Movie from "../component/movie";
 import styled from "styled-components";
+import Search from "../component/search";
 
 const Container = styled.div`
   ul {
@@ -20,6 +21,7 @@ const LoadEle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
 `;
 
 export default function Home() {
@@ -55,31 +57,55 @@ export default function Home() {
     console.log(checkedItems);
   }, [checkedItems]);
 
+  const [search, setSearch] = useState("");
+  const handleSearchInput = (e) => {
+    setSearch(e.target.value);
+  };
+
+  function Filter(movies) {
+    // console.log(movies.filter((word) => word.title.length < 10));
+    return movies.filter((item) => {
+      return (
+        item.title
+          .toString()
+          .toLowerCase()
+          .indexOf(search.toString().toLowerCase()) > -1
+      );
+    });
+  }
+
   return (
     <Container>
+      <Search
+        defaultValue={search}
+        onChange={handleSearchInput}
+        onClick={(e) => {
+          console.log(e.currentTarget);
+        }}
+      />
       {loading ? (
         <LoadEle>
           <h1>Loading...</h1>
         </LoadEle>
       ) : (
         <ul>
-          {movies.map((movie) => (
-            <li key={movie.id}>
-              <Movie
-                id={movie.id}
-                image={movie.large_cover_image}
-                genres={movie.genres}
-                title={movie.title}
-                summary={movie.summary}
-                rating={movie.rating}
-                year={movie.year}
-                onChange={(e) => {
-                  return changeHandler(e.target.checked, movie.id);
-                }}
-                checked={checkedItems.indexOf(movie.id) >= 0 ? true : false}
-              ></Movie>
-            </li>
-          ))}
+          {Filter(movies).map((movie) => {
+            return (
+              <li key={movie.id}>
+                <Movie
+                  id={movie.id}
+                  image={movie.large_cover_image}
+                  genres={movie.genres}
+                  title={movie.title}
+                  summary={movie.summary}
+                  rating={movie.rating}
+                  year={movie.year}
+                  onChange={(e) => changeHandler(e.target.checked, movie.id)}
+                  checked={checkedItems.indexOf(movie.id) >= 0 ? true : false}
+                ></Movie>
+              </li>
+            );
+          })}
         </ul>
       )}
     </Container>

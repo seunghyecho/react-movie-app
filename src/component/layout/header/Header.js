@@ -6,6 +6,12 @@ const HeaderEle = styled.header`
   padding: 0 10px;
   height: 100px;
   background-color: transparent;
+  h1 {
+    color: #fff;
+  }
+  a {
+    color: #fff;
+  }
   .flex {
     display: flex;
     align-items: center;
@@ -17,6 +23,8 @@ const HeaderEle = styled.header`
     }
   }
   .head--logo {
+    color: #fff;
+
     width: 20%;
   }
   .head--util {
