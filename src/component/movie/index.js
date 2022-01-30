@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const MovieEle = styled.div`
   position: relative;
@@ -38,6 +40,14 @@ const InfoArea = styled.div`
     justify-content: space-between;
   }
 `;
+const CheckFavorite = styled.div`
+  position: absolute;
+  left: 5px;
+
+  input {
+    appearance: none;
+  }
+`;
 export default function Movie({
   id,
   image,
@@ -46,23 +56,37 @@ export default function Movie({
   summary,
   rating,
   year,
+  checked,
+  onChange,
 }) {
   return (
-    <Link to={`/detail/${id}`}>
-      <MovieEle>
-        <ImgArea className="imag">
-          <img src={image} alt={title} />
-        </ImgArea>
-        <InfoArea className="info">
-          <span>{genres}</span>
+    <MovieEle>
+      <CheckFavorite>
+        <label htmlFor={id}>
+          <FontAwesomeIcon icon={faStar} color={checked ? "yellow" : "white"} />
+        </label>
+        <input
+          type="checkbox"
+          id={id}
+          name={id}
+          checked={checked}
+          onChange={onChange}
+        />
+      </CheckFavorite>
+      <ImgArea className="imag">
+        <img src={image} alt={title} />
+      </ImgArea>
+      <InfoArea className="info">
+        <span>{genres}</span>
+        <Link to={`/detail/${id}`}>
           <h1 className="title">{title}</h1>
-          <p className="summary">{summary}</p>
-          <div className="d-flex">
-            <span>{rating}</span>
-            <span>{year}</span>
-          </div>
-        </InfoArea>
-      </MovieEle>
-    </Link>
+        </Link>
+        <p className="summary">{summary}</p>
+        <div className="d-flex">
+          <span>{rating}</span>
+          <span>{year}</span>
+        </div>
+      </InfoArea>
+    </MovieEle>
   );
 }

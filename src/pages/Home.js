@@ -38,6 +38,23 @@ export default function Home() {
     getMovies();
   }, []);
 
+  const [checked, setChecked] = useState(false);
+  const [checkedItems, setCheckedItems] = useState([]);
+
+  const changeHandler = (checked, id) => {
+    if (checked) {
+      setCheckedItems([...checkedItems, id]);
+      setChecked(true);
+    } else {
+      setCheckedItems(checkedItems.filter((el) => el !== id));
+      setChecked(false);
+    }
+  };
+
+  useEffect(() => {
+    console.log(checkedItems);
+  }, [checkedItems]);
+
   return (
     <Container>
       {loading ? (
@@ -56,6 +73,10 @@ export default function Home() {
                 summary={movie.summary}
                 rating={movie.rating}
                 year={movie.year}
+                onChange={(e) => {
+                  return changeHandler(e.target.checked, movie.id);
+                }}
+                checked={checkedItems.indexOf(movie.id) >= 0 ? true : false}
               ></Movie>
             </li>
           ))}
