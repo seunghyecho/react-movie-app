@@ -16,11 +16,11 @@ const Container = styled.div`
   }
 `;
 const LoadEle = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   color: #fff;
 `;
 
