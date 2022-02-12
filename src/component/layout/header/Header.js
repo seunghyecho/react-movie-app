@@ -74,11 +74,11 @@ export default function Header() {
     },
     {
       id: 2,
-      name: "schedules",
+      name: "about",
     },
     {
       id: 3,
-      name: "tickets",
+      name: "articles",
     },
     {
       id: 4,
@@ -112,8 +112,17 @@ export default function Header() {
                 </li>
               );
             })}
+            <li>
+              <Link to="/profile/velopert">velopert의 프로필</Link>
+            </li>
+            <li>
+              <Link to="/profile/gildong">gildong의 프로필</Link>
+            </li>
+            <li>
+              <Link to="/profile/void">존재하지 않는 프로필</Link>
+            </li>
           </ul>
-          <div className="userCondition">
+          <div className="userCondition" onClick={handleLog}>
             <h4>
               {log ? (
                 <Link to="/">log out</Link>

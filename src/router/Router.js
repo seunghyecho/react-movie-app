@@ -1,16 +1,28 @@
 import { Routes, Route } from "react-router-dom";
-import Detail from "../pages/movie/Detail";
+import Layout from "../component/layout";
 import Home from "../pages/Home";
+import Detail from "../pages/movie/Detail";
+import About from "../pages/About";
+import Article from "../pages/Article";
+import Articles from "../pages/Articles";
+import Profile from "../pages/Profile";
+import LogIn from "../pages/auth/login";
 import Text from "../pages/Text";
-import Login from "../pages/auth/login";
 
 export default function Router() {
   return (
     <Routes>
-      <Route index path="/home" element={<Home />}></Route>
-      <Route path="/:id" element={<Text />}></Route>
-      <Route path="/login" element={<Login />}></Route>
-      <Route path="/detail/:id" element={<Detail />}></Route>
+      <Route element={<Layout />}>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/profile/:username" element={<Profile />}></Route>
+        <Route path="/articles" element={<Articles />}>
+          <Route path=":id" element={<Article />}></Route>
+        </Route>
+        <Route path="/:id" element={<Text />}></Route>
+        <Route path="/login" element={<LogIn />}></Route>
+        <Route path="/detail/:id" element={<Detail />}></Route>
+      </Route>
     </Routes>
   );
 }
