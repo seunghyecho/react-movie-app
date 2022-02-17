@@ -13,7 +13,7 @@ export default function Router() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />}></Route>
+        <Route path="/home" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/articles" element={<Articles />}>
           <Route path=":id" element={<Article />}></Route>

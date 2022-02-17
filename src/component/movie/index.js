@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
@@ -59,6 +59,7 @@ export default function Movie({
   checked,
   onChange,
 }) {
+  const navigate = useNavigate();
   return (
     <MovieEle>
       <CheckFavorite>
@@ -73,7 +74,7 @@ export default function Movie({
           onChange={onChange}
         />
       </CheckFavorite>
-      <ImgArea className="imag">
+      <ImgArea className="imag" onClick={() => navigate(`/detail/${id}`)}>
         <img src={image} alt={title} />
       </ImgArea>
       <InfoArea className="info">
