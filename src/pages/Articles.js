@@ -1,72 +1,59 @@
-import Table from "../component/table/Table";
 import { NavLink, Outlet } from "react-router-dom";
-import { useMemo } from "react";
+import styled, { css } from "styled-components";
+const UlEle = styled.ul`
+  margin: 5em auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  width: fit-content;
+  color: white;
 
+  li {
+    margin: 0 10px;
+  }
+
+  ${(props) =>
+    props.primary &&
+    css`
+      background: white;
+      color: black;
+    `}
+`;
 export default function Articles() {
   const lists = [
-    { id: 1, name: "list1" },
-    { id: 2, name: "list2" },
-    { id: 3, name: "list3" },
+    { id: 1, name: "Posts", url: "posts" },
+    { id: 2, name: "Comments", url: "comments" },
+    { id: 3, name: "list3", url: "list3" },
   ];
-  const data = useMemo(
-    () => [
-      {
-        id: 1,
-        title: "World",
-        created_at: "2022-02-22",
-      },
-      {
-        id: 2,
-        title: "rocks",
-        created_at: "2022-02-22",
-      },
-      {
-        id: 3,
-        title: "you want",
-        created_at: "2022-02-22",
-      },
-    ],
-    []
-  );
-  const columns = useMemo(
-    () => [
-      {
-        Header: "번호",
-        accessor: "id", // accessor is the "key" in the data
-      },
-      {
-        Header: "제목",
-        accessor: "title",
-      },
-      {
-        Header: "등록일",
-        accessor: "created_at",
-      },
-    ],
-    []
-  );
+
   return (
     <>
-      <Outlet />
-      <ul>
+      <UlEle>
         {lists.map((list) => (
-          <ArticleItem key={list.id} id={list.id} name={list.name} />
+          <ArticleItem
+            key={list.id}
+            id={list.id}
+            name={list.name}
+            url={list.url}
+          />
         ))}
-      </ul>
-      <Table columns={columns} data={data} />
+      </UlEle>
+      <Outlet />
     </>
   );
 }
 
-export function ArticleItem({ id, name }) {
+export function ArticleItem({ id, name, url }) {
   const activeStyle = {
-    color: "green",
+    color: "tomato",
+    borderBottom: "2px solid tomato",
     fontSize: 21,
   };
   return (
     <li>
       <NavLink
-        to={`/articles/${id}`}
+        to={`/articles/${url}`}
         style={({ isActive }) => (isActive ? activeStyle : undefined)}
       >
         {name}
